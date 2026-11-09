@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>游戏邀请函</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:#fff4f6;color:#60434b;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+.card{width:min(100%,560px);padding:42px 30px;text-align:center;background:#fffafb;border:1px solid #f4dce2;border-radius:24px;box-shadow:0 16px 45px rgba(164,105,124,.10)}
+.eyebrow{color:#c18496;letter-spacing:.18em;font-size:12px;margin-bottom:18px}
+h1{font-size:clamp(23px,6vw,31px);line-height:1.55;margin:0 0 26px;font-weight:650}
+label{display:block;margin:0 0 11px;font-size:17px;color:#9b7180;font-weight:600}
+input{width:min(100%,300px);padding:13px 15px;border:1px solid #e9cbd4;border-radius:12px;background:white;color:#60434b;font-size:16px;outline:none;text-align:center}
+input:focus{border-color:#d59aaa;box-shadow:0 0 0 3px #f8e8ed}
+.buttons{display:flex;justify-content:center;gap:14px;margin-top:28px;flex-wrap:wrap}
+button{min-width:112px;border:0;border-radius:999px;padding:13px 22px;font-size:15px;font-weight:600;cursor:pointer}
+#yes{background:#d98fa4;color:white}
+#no{background:#f1e7ea;color:#a88b94}
+.choice-note{margin:18px 0 0;color:#bd8798;font-size:14px;letter-spacing:.04em}
+#message{margin-top:25px;color:#bd7189;font-size:16px;line-height:1.9;font-weight:600;white-space:pre-wrap;overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="eyebrow">A LITTLE INVITATION</div>
+  <h1>请问这位美丽善良的女孩<br>明天是否愿意和我一起打游戏🎮</h1>
+  <label for="time">来选择时间吧！！！⌚️</label>
+  <input id="time" type="text" placeholder="请输入时间（韩国时间）">
+  <p class="choice-note">你有两次选择机会</p>
+  <div class="buttons">
+    <button id="yes" type="button">可以 ♡</button>
+    <button id="no" type="button">不可以</button>
+  </div>
+  <div id="message" role="status" aria-live="polite"></div>
+</main>
+<script>
+const message = document.getElementById('message');
+document.getElementById('no').addEventListener('click', () => {
+  message.textContent = '中 恁真中  真是冷酷嘞人 俺马上走 让恁看不到俺 骑上俺嘞洋车得 像俺这样嘞人 果然消失都中了 白佛了 保安俺也辞了 我能想到嫩喜多很 毁灭吧 靠嫩娘';
+});
+document.getElementById('yes').addEventListener('click', () => {
+  const time = document.getElementById('time').value.trim();
+  const chosenTime = time ? `\n约定时间：${time}（韩国时间）` : '';
+  message.textContent = 'ㅎㄹ...真的疯了 完全是 legend 啊ㅋㅋ选择可以真的不是天使吗 ㅅㅂ…做到这种程度的话就完全是神吧ㅠㅠ…以后也请一直和我打游戏吧♡ 今天完全展现出迷人的魅力呢 是路过的蚂蚁都会惊叹的程度啊！' + chosenTime;
+});
+</script>
+</body>
+</html>
